@@ -3,7 +3,7 @@
 ## Установка
 1. Клонируйте репозиторий:
     ```bash
-    git clone https://github.com/Car-Brand-Model-Labeler.git
+    git clone https://github.com/Grenka054/Car-Brand-Model-Labeler.git
     cd ваш-репозиторий
     ```
 

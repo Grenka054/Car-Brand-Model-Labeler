@@ -219,7 +219,7 @@ class CSVEditor(QMainWindow):
             if 'id' in csv_data.columns:
                 self.csv_dir = csv_dir
                 self.csv_data = csv_data
-                self.csv_data.sort_values(by=['id'], inplace=True)
+                self.csv_data.sort_values(by=['id', 'image_name'], inplace=True)
                 self.csv_data.reset_index(drop=True, inplace=True)
                 self.set_initial_id()
                 self.update_view()
@@ -246,7 +246,7 @@ class CSVEditor(QMainWindow):
             self.currentIDLabel.setText("Current ID: {}".format(self.current_id))
 
             self.imageList.clear()
-            for image_name in sorted(id_data['image_name'].tolist()):
+            for image_name in id_data['image_name'].tolist():
                 self.imageList.addItem(image_name)
             self.current_index = 0
             self.imageList.setCurrentRow(self.current_index)  # Set the first image as selected

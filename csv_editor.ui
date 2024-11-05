@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CSVEditor</class>
+ <widget class="QMainWindow" name="CSVEditor">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>CSV Editor</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="loadButton">
+        <property name="text">
+         <string>Load CSV</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="saveButton">
+        <property name="text">
+         <string>Save CSV</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="prevButton">
+        <property name="text">
+         <string>Previous ID</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="nextButton">
+        <property name="text">
+         <string>Next ID</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="deleteButton">
+        <property name="text">
+         <string>Delete Image</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="copyButton">
+        <property name="text">
+         <string>Copy Image</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QListWidget" name="imageList"/>
+      </item>
+      <item>
+       <widget class="QLabel" name="imageLabel">
+        <property name="minimumSize">
+         <size>
+          <width>400</width>
+          <height>300</height>
+         </size>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QLabel" name="imageNameLabel">
+      <property name="text">
+       <string>Image Name</string>
+      </property>
+      <property name="textInteractionFlags">
+       <set>TextSelectableByMouse</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="currentIDLabel">
+      <property name="text">
+       <string>Current ID</string>
+      </property>
+      <property name="textInteractionFlags">
+       <set>TextSelectableByMouse</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QCheckBox" name="excludeNegativeIDCheckbox">
+      <property name="text">
+       <string>Exclude Negative IDs</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool> <!-- По умолчанию включен -->
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QTableWidget" name="tableWidget">
+      <column>
+       <property name="text">
+        <string>Brand</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Model</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Color</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Conf</string>
+       </property>
+      </column>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QLineEdit" name="brandInput">
+        <property name="placeholderText">
+         <string>Brand</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="modelInput">
+        <property name="placeholderText">
+         <string>Model</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="colorInput">
+        <property name="placeholderText">
+         <string>Color</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="correctButton">
+        <property name="text">
+         <string>Correct Data</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QMenuBar" name="menubar">
+   <addaction name="menuFile"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QMenu" name="menuFile">
+   <property name="title">
+    <string>File</string>
+   </property>
+   <addaction name="actionSave"/>
+   <addaction name="actionCopy"/>
+   <addaction name="actionUndo"/>
+   <addaction name="actionRedo"/>
+  </widget>
+  <widget class="QMenu" name="menuHelp">
+   <property name="title">
+    <string>Help</string>
+   </property>
+   <addaction name="actionShowHelp"/>
+  </widget>
+  <action name="actionSave">
+   <property name="text">
+    <string>Save</string>
+   </property>
+  </action>
+  <action name="actionCopy">
+   <property name="text">
+    <string>Copy</string>
+   </property>
+  </action>
+  <action name="actionShowHelp">
+   <property name="text">
+    <string>Show Help</string>
+   </property>
+  </action>
+  <action name="actionUndo">
+   <property name="text">
+    <string>Undo</string>
+   </property>
+  </action>
+  <action name="actionRedo">
+   <property name="text">
+    <string>Redo</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

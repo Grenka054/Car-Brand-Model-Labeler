@@ -4,7 +4,7 @@
 1. Клонируйте репозиторий:
     ```bash
     git clone https://github.com/Grenka054/Car-Brand-Model-Labeler.git
-    cd ваш-репозиторий
+    cd Car-Brand-Model-Labeler
     ```
 
 2. Создайте виртуальное окружение:

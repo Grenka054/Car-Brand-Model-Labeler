@@ -172,7 +172,6 @@ class CSVEditor(QMainWindow):
         input_layout = QHBoxLayout()
         input_layout.addWidget(self.brandInput)
         input_layout.addWidget(self.modelInput)
-        input_layout.addWidget(self.colorInput)
         input_layout.addWidget(self.correctButton)
 
         # Добавляем лэйаут полей в вертикальный сплиттер
@@ -183,7 +182,7 @@ class CSVEditor(QMainWindow):
         # Добавляем вертикальный сплиттер в основной лэйаут
         main_layout.addWidget(v_splitter)
 
-        self.setWindowTitle('CSV Editor for Car Barnd/Model/Color Classification')
+        self.setWindowTitle('CSV Editor for Car Barnd/Model Classification')
         self.setGeometry(100, 100, 800, 600)
         self.show()
 
@@ -275,8 +274,7 @@ class CSVEditor(QMainWindow):
         for row, (index, data) in enumerate(id_data.iterrows()):
             self.tableWidget.setItem(row, 0, QTableWidgetItem(data['brand']))
             self.tableWidget.setItem(row, 1, QTableWidgetItem(data['model']))
-            self.tableWidget.setItem(row, 2, QTableWidgetItem(data['color']))
-            self.tableWidget.setItem(row, 3, QTableWidgetItem(str(data['conf'])))
+            self.tableWidget.setItem(row, 2, QTableWidgetItem(str(data['conf'])))
 
     def get_unique_ids(self):
         if self.excludeNegativeIDCheckbox.isChecked():
@@ -352,8 +350,7 @@ class CSVEditor(QMainWindow):
             self.save_state()  # Сохраняем текущее состояние перед изменением
             brand = self.brandInput.text()
             model = self.modelInput.text()
-            color = self.colorInput.text()
-            self.csv_data.loc[self.csv_data['id'] == self.current_id, ['brand', 'model', 'color']] = [brand, model, color]
+            self.csv_data.loc[self.csv_data['id'] == self.current_id, ['brand', 'model']] = [brand, model]
             self.unsaved_changes = True
             self.update_status()
             self.update_view()

@@ -201,7 +201,7 @@ class CSVEditor(QMainWindow):
         self.update_image()
 
     def update_image_list(self):
-        # Логика обновления imageList без кадров с id -9999
+        # Логика обновления imageList без кадров с отрицательным id
         self.imageList.clear()
         filtered_data = self.csv_data[self.csv_data['id'] >= 0]
         for image_name in filtered_data['image_name']:
@@ -338,7 +338,7 @@ class CSVEditor(QMainWindow):
             if selected_items:
                 self.save_state()  # Сохраняем текущее состояние перед изменением
                 selected_image_name = selected_items[0].text()
-                self.csv_data.loc[self.csv_data['image_name'] == selected_image_name, 'id'] = -9999
+                self.csv_data.loc[self.csv_data['image_name'] == selected_image_name, 'id'] *= -1
                 self.update_image_list()
                 self.update_view()
                 if self.imageList.count() == 0:

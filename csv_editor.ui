@@ -125,11 +125,6 @@
       </column>
       <column>
        <property name="text">
-        <string>Color</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
         <string>Conf</string>
        </property>
       </column>
@@ -148,13 +143,6 @@
        <widget class="QLineEdit" name="modelInput">
         <property name="placeholderText">
          <string>Model</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="colorInput">
-        <property name="placeholderText">
-         <string>Color</string>
         </property>
        </widget>
       </item>

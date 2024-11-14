@@ -4,7 +4,7 @@ import pandas as pd
 from PyQt5.QtWidgets import QApplication, QMainWindow, QSplitter, QFileDialog, \
         QMessageBox, QTableWidgetItem, QVBoxLayout, QWidget, QHBoxLayout,\
         QSizePolicy, QTextEdit, QDialog
-from PyQt5.QtGui import QPixmap, QKeyEvent
+from PyQt5.QtGui import QPixmap, QKeyEvent, QColor
 from PyQt5.QtCore import Qt
 from PyQt5.uic import loadUi
 
@@ -275,6 +275,16 @@ class CSVEditor(QMainWindow):
             self.tableWidget.setItem(row, 0, QTableWidgetItem(data['brand']))
             self.tableWidget.setItem(row, 1, QTableWidgetItem(data['model']))
             self.tableWidget.setItem(row, 2, QTableWidgetItem(str(data['conf'])))
+        # Check if all values in the 'brand' column are the same
+        if len(id_data['brand'].unique()) == 1:
+            self.tableWidget.horizontalHeaderItem(0).setBackground(QColor("green"))
+        else:
+            self.tableWidget.horizontalHeaderItem(0).setBackground(QColor("red"))
+        # Check if all values in the 'model' column are the same
+        if len(id_data['model'].unique()) == 1:
+            self.tableWidget.horizontalHeaderItem(1).setBackground(QColor("green"))
+        else:
+            self.tableWidget.horizontalHeaderItem(1).setBackground(QColor("red"))
 
     def get_unique_ids(self):
         if self.excludeNegativeIDCheckbox.isChecked():
@@ -393,4 +403,3 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = CSVEditor()
     sys.exit(app.exec_())
-
